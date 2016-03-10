@@ -1,0 +1,14 @@
+DROP TABLE movies CASCADE;
+DROP TABLE categories CASCADE;
+
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY,
+  category VARCHAR(82) NOT NULL UNIQUE
+);
+
+CREATE TABLE movies (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(88) NOT NULL UNIQUE,
+  year INT NOT NULL,
+  category_id INT REFERENCES categories(id)
+);
